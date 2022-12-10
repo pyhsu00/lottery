@@ -1,0 +1,210 @@
+$cw: 16vw;
+$ch: 32vw;
+$cb: 33vw;
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+body, html {
+    padding: 0; 
+    margin: 0;
+    height: 100vh; overflow: hidden;
+    font-family: 'Mr Dafoe', cursive;
+}
+.wrapper {
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+    background-image: url(/c.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh; overflow: hidden;
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+    &:before {
+        position: absolute; top: 0;
+        content: '';
+        background: radial-gradient(transparent, rgba(0,0,0,0.6));
+        width: 100vw; height: 100vh;
+    }
+    &.dark {
+        &:before {
+            background: radial-gradient(transparent, rgba(0,0,0,0.8));
+        }
+    }
+}
+.logo {
+    position: fixed; bottom: 3vh; right: 3vh;
+    opacity: 0.9;
+    img {
+        width: 8vw;
+    }
+}
+.piechart {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.dark {
+        .pie, .center{
+            opacity: 0.15;
+        }
+        .border {
+            opacity: 0;
+        }
+    }
+    .border {
+        position: absolute;
+        top: 52%; left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: $cb; height: $cb;
+        background-image: url('/gol-text.jpg');
+        background-size: cover;
+        border-radius: 50%
+    }
+    .bar {
+        z-index: 99999;
+        position: absolute; right: 0;
+    }
+    .pie {
+        position:relative;
+        height: $ch;
+        margin: auto;
+        margin-top: 20px;
+        &:before {
+            content: '';
+            display: block;
+            width: $ch; height: $ch;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .slice {
+            position:absolute;
+            width:$cw;
+            height:$ch;
+            overflow:hidden;
+            left:50%;
+            top:0;
+            transform-origin:left center;
+            cursor:pointer;
+            .before {
+                position:absolute;
+                width:$cw; 
+                height:$ch;
+                left:-$cw;
+                border-radius:$cw 0 0 $cw;
+                transform-origin:right center;
+                z-index:-1;
+                background-image: url('/green.jpg');
+                background-size: cover;
+            }
+            h4 {
+                position:absolute;
+                top:1%; left:2.5%;
+                margin:0em;
+                z-index:1000;
+                color: white;
+                // color: black;
+                text-align:center;
+                font-size:15px;
+            }
+            &.odd {
+                &:nth-child(3n){
+                    .before {
+                        background-image: url('/green.jpg');
+                    }
+                }
+                &:nth-child(3n+1){
+                    .before {
+                        background-image: url('/red.jpg');
+                    }
+                }
+                &:nth-child(3n+2){
+                    .before {
+                        background-image: url('/b.jpg');
+                    }
+                }
+            }
+            &.even {
+                &:nth-child(2n){
+                    .before {
+                        background-image: url('/green.jpg');
+                    }
+                }
+                &:nth-child(2n+1){
+                    .before {
+                        background-image: url('/red.jpg');
+                    }
+                }
+            }
+        }
+    }
+    .center {
+        position: absolute; transform: translateY(10px);
+        width: 75px; height: 75px;
+        border-radius: 50%;
+        background-image: url('/gold-texture.jpg');
+        background-size: cover;
+        &:before {
+            content: '';position: absolute; transform: translateY(-50%) translateX(-50%);
+            display: block; left: 50%; top: 50%;
+            width: 60px; height: 60px;
+            background-image: url('/gold-texture.jpg');
+            background-size: cover;
+            border-radius: 50%;
+        }
+    }
+}
+.tri {
+    position: absolute;
+    z-index: 999; top: -3vh; 
+    width: 3vh; height: 3vh;
+    background-image: url(/starpin.svg);
+    background-repeat: no-repeat;
+}
+.result {
+    display: flex; align-items: center; justify-content: center;
+    position: absolute;
+    top: 50%; left: 25%;
+    transform: translateX(0%) translateY(-50%);
+    width: 50vw; 
+    border-radius: 50%;
+    font-size: 35vh; letter-spacing: 1rem;
+    z-index: 999999;
+    color: white;
+    text-transform: uppercase;
+    background: url(/gol-text.jpg) 0 0 / cover no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 0.2em rgba(0,0,0,0.3)
+}
+.box {
+    display: flex; flex-wrap:wrap;
+    position: absolute;
+    width: 300px;
+    top: 1%; right: 1%;
+    color: white;
+    .ball {
+        display: inline-flex; align-items: center; justify-content: center;
+        margin: 1vh;
+        width:  4vh; height: 4vh; max-height:  4vh;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        background-image: url('/ye.jpg');
+        color: black;
+        font-size: 2vh;
+        font-weight: bold;
+        background-size: cover;
+    }
+}
+.ani {
+    position: fixed;
+    opacity: 0.3;
+    &.cel {
+        top: -50vh;
+        opacity: 1;
+    }
+    &.cat {
+        z-index: 999999;
+        right: 15vw; transform: translateY(35%);
+        opacity: 1;
+    }
+}
