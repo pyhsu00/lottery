@@ -206,5 +206,21 @@ body, html {
         z-index: 999999;
         right: 15vw; transform: translateY(35%);
         opacity: 1;
+        
+    }
+    &.black {
+        opacity: 1;
+        &.bt {
+            right: 50%; bottom: -1%;
+            transform: translateY(0) translateX(50%);
+        }
+        &.right {
+            right: 0;
+            transform: rotate(-90deg) translateX(50%) ;
+        }
+        &.left {
+            left: 0;
+            transform: rotate(90deg) translateX(50%) ;
+        }
     }
 }

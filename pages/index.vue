@@ -20,12 +20,42 @@
                 </lottie-player>
             </client-only>
         </div>
-        <div class="ani cat"  v-if="showani3">
+        <div class="ani cat"  v-if="showani3 && raw.length % 2 === 0">
             <client-only> 
                 <lottie-player
                     :src="`/catty.json`"
                     background="transparent"  
                     :options="lottie_options3"
+                >
+                </lottie-player>
+            </client-only>
+        </div>
+        <div class="ani black bt" v-if="showani3 && raw.length % 2 !== 0">
+            <client-only> 
+                <lottie-player
+                    :src="`/blackcat.json`"
+                    background="transparent"  
+                    :options="lottie_options4"
+                >
+                </lottie-player>
+            </client-only>
+        </div>
+        <div class="ani black left" v-if="showani3 && raw.length % 2 !== 0">
+            <client-only> 
+                <lottie-player
+                    :src="`/blackcat.json`"
+                    background="transparent"  
+                    :options="lottie_options4"
+                >
+                </lottie-player>
+            </client-only>
+        </div>
+        <div class="ani black right" v-if="showani3 && raw.length % 2 !== 0">
+            <client-only> 
+                <lottie-player
+                    :src="`/blackcat.json`"
+                    background="transparent"  
+                    :options="lottie_options4"
                 >
                 </lottie-player>
             </client-only>
@@ -119,6 +149,12 @@ export default {
                 width: "700px",
                 height: "700px",
             },
+            lottie_options4: {
+                autoplay: true,
+                background: "none",
+                width: "500px",
+                height: "500px",
+            },
             showani: false,
             showani2: false,
             showani3:false
@@ -172,10 +208,10 @@ export default {
                 (this.pool.length > 0) && this.reset();
                 this.disabled = true;
                 let basic = await this.basicScroll();
+                this.showani3 = true;
                 if(basic){
                     let prize = await this.getPrize();
                     if (this.timer === null) {
-                        this.showani3 = true;
                         let tg = (this.raw.length - this.r) * (360 / this.raw.length);
                         this.timer = setInterval(() => {
                             this.counter += 1;
@@ -190,7 +226,7 @@ export default {
                                     this.showani3 = false
                                     this.showani2 = true;
                                     this.pool.push(this.result);
-                                },2800)
+                                },2000)
                             }
                         }, 6);
                     }
