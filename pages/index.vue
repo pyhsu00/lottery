@@ -75,7 +75,9 @@
             <div class="center"></div>
         </div>
         <div class="box">
-            <div class="ball" v-for="index in pool" :key="index">{{ index }}</div>
+            <div class="ball" v-for="(item, index) in pool" :key="index">
+                <span class="order">{{ index+1 }}</span>
+                {{ item }}</div>
         </div>
         <div class="result" v-show="showani2">{{ result }}</div>
         <div class="logo">
