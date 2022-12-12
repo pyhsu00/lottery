@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper" @click="getRandom()" :class="{ dark: showani }">
+        <span v-if="!start" class="greeting">Christmas Party</span>
         <div class="ani" v-if="showani2">
             <client-only>
                 <lottie-player
@@ -40,7 +41,7 @@
                 </lottie-player>
             </client-only>
         </div>
-        <div class="piechart" :class="{ dark: showani }">
+        <div v-if="start" class="piechart" :class="{ dark: showani, start: start }">
             <div class="tri"></div>
             <div class="border"></div>
             <div class="pie">
@@ -60,7 +61,6 @@
                    
                     }"
                 ></div>
-                 <!-- 'background-image': `url(${bgc[index % 4]})`, -->
                 <h4
                     :style="{
                     transform: `rotate(${
@@ -93,17 +93,10 @@
 export default {
     data() {
         return {
+            start: false,
             result: null,
             pool: [],
             raw: [],
-            // bgc: [
-            //     "/green.jpg",
-            //     "/green.jpg",
-            //     // "/green.jpg",
-            //     // "/red.jpg",
-            //     "/red.jpg",
-            //     "/red.jpg",
-            // ],
             counter: 0,
             position: 0,
             speed: 1,
@@ -135,6 +128,12 @@ export default {
                 width: "500px",
                 height: "500px",
             },
+            lottie_options_star: {
+                autoplay: true,
+                background: "none",
+                width: "90px",
+                height: "90px",
+            },            
             showani: false,
             showani2: false,
             showani3:false
@@ -184,31 +183,35 @@ export default {
             });
         },
         async getRandom() {
-            if (this.raw.length > 1 && !this.disabled) {
-                (this.pool.length > 0) && this.reset();
-                this.disabled = true;
-                let basic = await this.basicScroll();
-                this.showani3 = true;
-                if(basic){
-                    let prize = await this.getPrize();
-                    if (this.timer === null) {
-                        let tg = (this.raw.length - this.r) * (360 / this.raw.length);
-                        this.timer = setInterval(() => {
-                            this.counter += 1;
-                            this.position += 1;
-                            if (this.counter > tg) {
-                                clearInterval(this.timer);
-                                this.timer = null;
-                                this.counter = 0;
-                                this.disabled = false;
-                                setTimeout(()=>{
-                                    this.showani = true;
-                                    this.showani3 = false
-                                    this.showani2 = true;
-                                    this.pool.push(this.result);
-                                },2000)
-                            }
-                        }, 6);
+            if(!this.start){
+                this.start = true
+            }else{
+                if (this.raw.length > 1 && !this.disabled) {
+                    (this.pool.length > 0) && this.reset();
+                    this.disabled = true;
+                    let basic = await this.basicScroll();
+                    this.showani3 = true;
+                    if(basic){
+                        let prize = await this.getPrize();
+                        if (this.timer === null) {
+                            let tg = (this.raw.length - this.r) * (360 / this.raw.length);
+                            this.timer = setInterval(() => {
+                                this.counter += 1;
+                                this.position += 1;
+                                if (this.counter > tg) {
+                                    clearInterval(this.timer);
+                                    this.timer = null;
+                                    this.counter = 0;
+                                    this.disabled = false;
+                                    setTimeout(()=>{
+                                        this.showani = true;
+                                        this.showani3 = false
+                                        this.showani2 = true;
+                                        this.pool.push(this.result);
+                                    },2000)
+                                }
+                            }, 6);
+                        }
                     }
                 }
             }
