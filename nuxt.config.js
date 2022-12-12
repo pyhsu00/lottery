@@ -13,9 +13,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel:"preconnect", href:"https://fonts.googleapis.com"},
-      {rel:"preconnect", href:"https://fonts.gstatic.com"},
-      {href: "https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap", rel:"stylesheet"}
     ]
   },
 

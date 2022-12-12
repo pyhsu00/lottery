@@ -40,26 +40,6 @@
                 </lottie-player>
             </client-only>
         </div>
-        <div class="ani black left" v-if="showani3 && raw.length % 2 !== 0">
-            <client-only> 
-                <lottie-player
-                    :src="`/blackcat.json`"
-                    background="transparent"  
-                    :options="lottie_options4"
-                >
-                </lottie-player>
-            </client-only>
-        </div>
-        <div class="ani black right" v-if="showani3 && raw.length % 2 !== 0">
-            <client-only> 
-                <lottie-player
-                    :src="`/blackcat.json`"
-                    background="transparent"  
-                    :options="lottie_options4"
-                >
-                </lottie-player>
-            </client-only>
-        </div>
         <div class="piechart" :class="{ dark: showani }">
             <div class="tri"></div>
             <div class="border"></div>

@@ -12,8 +12,8 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_f7d5c294 from 'nuxt_plugin_plugin_f7d5c294' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_bootstrapvue_7dee7cfb from 'nuxt_plugin_bootstrapvue_7dee7cfb' // Source: ./bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_plugin_6b4847d8 from 'nuxt_plugin_plugin_6b4847d8' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_bootstrapvue_72d7871d from 'nuxt_plugin_bootstrapvue_72d7871d' // Source: ./bootstrap-vue.js (mode: 'all')
 import nuxt_plugin_vuelottieplayer_88d846b6 from 'nuxt_plugin_vuelottieplayer_88d846b6' // Source: ../plugins/vue-lottie-player.js (mode: 'client')
 
 // Component: <ClientOnly>
@@ -64,7 +64,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"lottery","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"preconnect","href":"https:\u002F\u002Ffonts.googleapis.com"},{"rel":"preconnect","href":"https:\u002F\u002Ffonts.gstatic.com"},{"href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Mr+Dafoe&display=swap","rel":"stylesheet"}],"style":[],"script":[]},
+    head: {"title":"lottery","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
 
     router,
     nuxt: {
@@ -178,12 +178,12 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_f7d5c294 === 'function') {
-    await nuxt_plugin_plugin_f7d5c294(app.context, inject)
+  if (typeof nuxt_plugin_plugin_6b4847d8 === 'function') {
+    await nuxt_plugin_plugin_6b4847d8(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_bootstrapvue_7dee7cfb === 'function') {
-    await nuxt_plugin_bootstrapvue_7dee7cfb(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_72d7871d === 'function') {
+    await nuxt_plugin_bootstrapvue_72d7871d(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuelottieplayer_88d846b6 === 'function') {
