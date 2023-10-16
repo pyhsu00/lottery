@@ -81,7 +81,6 @@
         </div>
         <div class="result" v-show="showani2">{{ result }}</div>
         <div class="logo">
-            <img src="/logo.svg" alt="">
         </div>
     </div>
 </template>
