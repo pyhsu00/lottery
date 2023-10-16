@@ -220,7 +220,7 @@ export default {
         },
     },
     mounted() {
-        this.raw = Array.from({ length: 60 }, (_, i) => i + 1);
+        this.raw = Array.from({ length: 34 }, (_, i) => i + 1);
     },
 };
 </script>

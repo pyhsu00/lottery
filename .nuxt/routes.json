@@ -1,9 +1,14 @@
 [
   {
+    "name": "card",
+    "path": "/card",
+    "component": "/Users/peiyihsu/lottery/pages/card/index.vue",
+    "chunkName": "pages/card/index"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/peiyihsu/lottery/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_7b57f6b0"
+    "chunkName": "pages/index"
   }
 ]
